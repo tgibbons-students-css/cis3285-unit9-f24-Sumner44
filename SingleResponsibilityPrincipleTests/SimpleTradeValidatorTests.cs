@@ -109,7 +109,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.IsFalse(result);
         }
         [TestMethod()]
-        public void TestAmount100k()
+        public void TestAmount1m()
         {
             //Arrange
             var logger = new ConsoleLogger();

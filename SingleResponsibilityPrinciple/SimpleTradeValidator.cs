@@ -14,6 +14,8 @@ namespace SingleResponsibilityPrinciple
 
         public bool Validate(string[] tradeData)
         {
+           
+
             if (tradeData.Length != 3)
             {
                 logger.LogWarning("Line malformed. Only {0} field(s) found.", tradeData.Length);
@@ -37,6 +39,11 @@ namespace SingleResponsibilityPrinciple
             if (!decimal.TryParse(tradeData[2], out tradePrice))
             {
                 logger.LogWarning("Trade price not a valid decimal: '{0}'", tradeData[2]);
+                return false;
+            }
+            if (tradeAmount < 1000 || tradeAmount > 1000000)
+            {
+                logger.LogWarning("Trade amount '{0}' is not within valid range (1000-100000).", tradeAmount);
                 return false;
             }
 
